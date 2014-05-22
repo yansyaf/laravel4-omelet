@@ -7,5 +7,7 @@ It bundle with:
 
 - Bootstrap 3
 - Authentication module:
--- Confide for basic user management such as: create, login, reset password, etc.
--- Entrust for role and permission management
+  - Confide for basic user management such as: create, login, reset password, etc.
+  - Entrust for role and permission management
+
+For Codeigniter Omelet, check [this link](https://github.com/yansyaf/codeigniter-omelet)

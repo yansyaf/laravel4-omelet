@@ -5,7 +5,7 @@ An initial Laravel 4 project that will help you quickly develop a webapps. It' i
 
 It bundle with:
 
-Bootstrap 3
-Authentication module:
-- Confide for basic user management such as: create, login, reset password, etc.
-- Entrust for role and permission management
+- Bootstrap 3
+- Authentication module:
+-- Confide for basic user management such as: create, login, reset password, etc.
+-- Entrust for role and permission management

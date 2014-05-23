@@ -37,19 +37,14 @@
 	    <div class="navbar-collapse collapse">
 	      <ul class="nav navbar-nav">
 	        <li class="active">{{ HTML::link('/', 'Home') }}</li>
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Secret <b class="caret"></b></a>
-	          <ul class="dropdown-menu">
-	            <li><a href="#">Secret 1</a></li>
-	            <li><a href="#">Secret 2</a></li>
-	          </ul>
-	        </li>
+            @if (Auth::check() && Auth::user()->hasRole('Admin'))
+            <li><a href="{{{ URL::to('admin') }}}">Administration</a></li>
+            @endif	        
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
             @if (Auth::check())
     		<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong>{{{ Auth::user()->username }}}</strong></a>
     			<ul class="dropdown-menu">                    
-                    <li><a href="{{{ URL::to('admin') }}}">Admin Panel</a></li>
                     <li><a href="{{{ URL::to('user') }}}">My Profile</a></li>
                     <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
                 </ul>

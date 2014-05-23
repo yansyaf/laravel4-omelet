@@ -26,3 +26,40 @@ Route::post('user/forgot_password',        'UserController@do_forgot_password');
 Route::get( 'user/reset_password/{token}', 'UserController@reset_password');
 Route::post('user/reset_password',         'UserController@do_reset_password');
 Route::get( 'user/logout',                 'UserController@logout');
+
+Route::get('admin', function() 
+{
+	$user = Auth::user();
+ 
+    if ($user->hasRole('Admin'))
+    {	
+		return View::make('admin/index');
+	}
+});
+
+Route::get('/start', function()
+{
+	/* create role */
+	$userRole = new Role;
+	$userRole->name = 'User';
+	$userRole->save();
+
+	$adminRole = new Role;
+	$adminRole->name = 'Admin';
+	$adminRole->save();
+
+	/* create permission */
+	$manageUsersPermission = new Permission;
+	$manageUsersPermission->name = 'manage_users';
+	$manageUsersPermission->display_name = 'Manage Users';
+	$manageUsersPermission->save();
+  
+  	/* attach permission to role */
+    $adminRole->attachPermission($manageUsersPermission);
+
+	/* attach role to user */
+	$user = User::where('username','=','admin')->first();
+	$user->attachRole($adminRole);
+ 
+    return 'Woohoo, now you ready to go!';
+});

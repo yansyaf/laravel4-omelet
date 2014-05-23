@@ -17,6 +17,7 @@
 	@section('header')
 	    {{ HTML::style('packages/bootstrap/css/bootstrap.min.css') }}
 	    {{ HTML::style('css/site.css') }}
+	    {{ HTML::style('css/jquery.dynatable.css') }}
 	@show
 
 </head>
@@ -59,8 +60,14 @@
 	</div>
 	@show
 
-	<div class="container" style="margin-top: 40px;">
-		@yield('content')
+	<div class="row" style="margin-top: 0px;">
+		@section('content')
+		<div class="col-sm-3 col-md-2 sidebar">
+		  <ul class="nav nav-sidebar">
+		    <li class="active">{{ HTML::link('admin/users', 'User Management') }}</li>
+		  </ul>
+		</div>	
+		@show
 	</div>
 
 <!-- Bootstrap core JavaScript
@@ -69,6 +76,7 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script>
 <!-- {{ HTML::script('js/jquery-1.11.1.min.js') }} -->
 {{ HTML::script('packages/bootstrap/js/bootstrap.min.js') }}
+{{ HTML::script('js/jquery.dynatable.js') }}
 <!-- {{ HTML::script('packages/bootstrap/js/jquery.dynatable.js') }} -->
 <!-- {{ HTML::script('js/datatables-bootstrap.js') }}
 {{ HTML::script('js/datatables.fnReloadAjax.js') }}

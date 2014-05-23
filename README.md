@@ -5,9 +5,10 @@ An initial Laravel 4 project that will help you quickly develop a webapps. It' i
 
 It bundle with:
 
-- Bootstrap 3
+- Bootstrap 3, only use template from [Bootstrap](https://github.com/yansyaf/codeigniter-omelet) site itself
 - Authentication module:
   - Confide for basic user management such as: create, login, reset password, etc.
   - Entrust for role and permission management
+  - Dynatable for table front-end (finally found library that much much better that dataTable, indeed!)
 
 For Codeigniter Omelet, check [this link](https://github.com/yansyaf/codeigniter-omelet)

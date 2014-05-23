@@ -15,6 +15,7 @@ Route::get('/', function()
 {
 	return View::make('layout');
 });
+
 // Confide routes
 Route::get( 'user/create',                 'UserController@create');
 Route::post('user',                        'UserController@store');
@@ -27,14 +28,26 @@ Route::get( 'user/reset_password/{token}', 'UserController@reset_password');
 Route::post('user/reset_password',         'UserController@do_reset_password');
 Route::get( 'user/logout',                 'UserController@logout');
 
-Route::get('admin', function() 
+/** ------------------------------------------
+ *  Admin Routes
+ *  ------------------------------------------
+ */
+Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
-	$user = Auth::user();
- 
-    if ($user->hasRole('Admin'))
-    {	
-		return View::make('admin/index');
-	}
+    # Admin Dashboard
+    Route::get('/', function()
+    {
+    	$title = Lang::get('admin/users/title.user_management');
+    	return View::make('admin/index');
+    });
+
+    # User Management
+    Route::get('users/{user}/show', 'AdminUsersController@getShow');
+    Route::get('users/{user}/edit', 'AdminUsersController@getEdit');
+    Route::post('users/{user}/edit', 'AdminUsersController@postEdit');
+    Route::get('users/{user}/delete', 'AdminUsersController@getDelete');
+    Route::post('users/{user}/delete', 'AdminUsersController@postDelete');
+    Route::controller('users', 'AdminUsersController');
 });
 
 Route::get('/start', function()

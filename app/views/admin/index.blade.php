@@ -1,18 +1,25 @@
-@extends('layout')
+@extends('admin/layout')
 
 @section('title')
-  @parent Login
+  Dashboard
 @stop
 
 @section('header')
-    @parent
-    {{ HTML::style('css/site.css') }}
+  @parent
 @stop
 
 @section('navbar')
-    @parent
+  @parent
 @stop
 
 @section('content')
-<h2>Administration</h2>
+@parent
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <div class="page-header">
+    <h3>Dashboard</h3>
+  </div>
+</div>
+@stop
+
+@section('scripts')
 @stop

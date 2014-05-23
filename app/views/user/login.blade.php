@@ -6,7 +6,6 @@
 
 @section('header')
     @parent
-    {{ HTML::style('css/site.css') }}
 @stop
 
 @section('navbar')

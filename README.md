@@ -12,3 +12,11 @@ It bundle with:
   - Dynatable for table front-end (finally found library that much much better that dataTable, indeed!)
 
 For Codeigniter Omelet, check [this link](https://github.com/yansyaf/codeigniter-omelet)
+
+== How To Install ==
+
+* Download the source code
+* Run: composer install
+* Edit app/config/database.php to match your server configuration
+* Run: php artisan migrate
+* Done!
